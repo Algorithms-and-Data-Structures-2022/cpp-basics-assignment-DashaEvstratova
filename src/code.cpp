@@ -1,5 +1,5 @@
 #include "assignment/code.hpp"
-
+#include <cmath>
 #include <iostream>   // cout, printf
 #include <algorithm>  // fill, copy
 
@@ -7,9 +7,10 @@ namespace assignment {
 
   // Task 1
   int squared_diff(int left, int right) {
-
-    // Write your code here ...
-
+    int c;
+    c = left - right;
+    c = sqrt(c);
+    std::cout<<c;
     return 0;
   }
 
