@@ -6,28 +6,35 @@
 namespace assignment {
 
   // Task 1
-  int squared_diff(int left, int right) {
-    int c;
-    c = left - right;
-    c = sqrt(c);
-    std::cout<<c;
-    return 0;
+  int squared_diff(int left, int right){
+    int c = left - right;
+    c = c*c;
+    return c;
   }
 
   // Task 2
   bool check_bit(int mask, int bit_pos) {
-
-    // Write your code here ...
-
-    return false;
+    if (mask < 0) {
+      bool a = false;
+      return a;
+    }
+    else if ((mask & (1 << bit_pos)) == 0) {
+      bool a = false;
+      return a;
+    }
+    bool a = true;
+    return a;
   }
 
   // Task 3
   int max3(int left, int middle, int right) {
-
-    // Write your code here ...
-
-    return 0;
+    if (left>= middle && left >= right){
+      return left;
+    }
+    else if (middle>= left && middle >= right){
+      return middle;
+    }
+    return right;
   }
 
   // Task 4

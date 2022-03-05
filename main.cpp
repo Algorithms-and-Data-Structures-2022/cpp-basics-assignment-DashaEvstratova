@@ -6,8 +6,7 @@ using namespace std;
 using namespace assignment;
 
 int main() {
-
-  cout << "Write your code here...\n";
-
+  std::cout<<max3(1, 0, 12);
+  std::cout<<max3(1, 1, -2);
   return 0;
 }
