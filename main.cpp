@@ -6,7 +6,7 @@ using namespace std;
 using namespace assignment;
 
 int main() {
-  std::cout<<max3(1, 0, 12);
-  std::cout<<max3(1, 1, -2);
+  int left = 3; int* right = nullptr;
+      swap_args(&left, right);
   return 0;
 }
