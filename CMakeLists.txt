@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 
-project(cpp_assignment CXX)
+project(classwork CXX)
 
 # C++ standard specification
 set(CMAKE_CXX_STANDARD 17)
@@ -11,52 +11,33 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Helpers
 include(CMakePrintHelpers)
-include(cmake/MemCheck.cmake)
 include(cmake/CompilerWarnings.cmake)
 
 # Options
-option(BUILD_TESTS "Build assignment tests." ON)
-option(ENABLE_COMPILER_WARNINGS "Project compile warnings." ON)
-option(ENABLE_MEMCHECK "Configure project for memory checking." OFF)
+option(ENABLE_COMPILER_WARNINGS "Project compile warnings." OFF)
 
-cmake_print_variables(CMAKE_BUILD_TYPE BUILD_TESTS ENABLE_COMPILER_WARNINGS ENABLE_MEMCHECK)
+cmake_print_variables(CMAKE_BUILD_TYPE ENABLE_COMPILER_WARNINGS CMAKE_CXX_FLAGS)
 
-# Library
-add_library(${PROJECT_NAME} STATIC include/assignment/code.hpp)
-
-if (EXISTS ${PROJECT_SOURCE_DIR}/src/code_solution.cpp)
-    message(STATUS "Using solution code: yes")
-    target_sources(${PROJECT_NAME} PRIVATE src/code_solution.cpp)
-else ()
-    message(STATUS "Using solution code: no")
-    target_sources(${PROJECT_NAME} PRIVATE src/code.cpp)
-endif ()
-
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+# Sources
+file(GLOB CPP_SOURCES RELATIVE ${PROJECT_SOURCE_DIR} src/*.cpp)
 
 # Executables
-add_executable(run_${PROJECT_NAME} main.cpp)
-target_link_libraries(run_${PROJECT_NAME} PRIVATE ${PROJECT_NAME})
+foreach (CPP_SOURCE ${CPP_SOURCES})
+    get_filename_component(EXEC_NAME ${CPP_SOURCE} NAME_WE)
+
+    add_executable(${EXEC_NAME} ${CPP_SOURCE})
+endforeach (CPP_SOURCE ${CPP_SOURCES})
+
+include_directories(include)
 
 # Warnings
 if (ENABLE_COMPILER_WARNINGS)
     message(STATUS "Compiler warnings: enabled")
-
     add_library(project_warnings INTERFACE)
     set_project_warnings(project_warnings)
 
-    target_link_libraries(${PROJECT_NAME} PRIVATE project_warnings)
-    target_link_libraries(run_${PROJECT_NAME} PRIVATE project_warnings)
+    foreach (CPP_SOURCE ${CPP_SOURCES})
+        get_filename_component(EXEC_NAME ${CPP_SOURCE} NAME_WE)
+        target_link_libraries(${EXEC_NAME} PRIVATE project_warnings)
+    endforeach (CPP_SOURCE ${CPP_SOURCES})
 endif (ENABLE_COMPILER_WARNINGS)
-
-# Memory Check
-if (ENABLE_MEMCHECK)
-    enable_memcheck()
-endif (ENABLE_MEMCHECK)
-
-# Tests
-if (BUILD_TESTS)
-    enable_testing()
-    add_subdirectory(contrib)
-    add_subdirectory(tests)
-endif (BUILD_TESTS)
