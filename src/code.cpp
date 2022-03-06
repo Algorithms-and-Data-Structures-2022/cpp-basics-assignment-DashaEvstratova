@@ -34,7 +34,7 @@ namespace assignment {
     else if (middle>= left && middle >= right){
       return middle;
     }
-    return right;
+    //return right;
   }
 
   // Task 4
