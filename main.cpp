@@ -6,7 +6,7 @@ using namespace std;
 using namespace assignment;
 
 int main() {
-  int left = 3; int* right = nullptr;
-      swap_args(&left, right);
+  int array[3]{1, 2, 3};
+  cout<<arr_sum(nullptr, 5);
   return 0;
 }
