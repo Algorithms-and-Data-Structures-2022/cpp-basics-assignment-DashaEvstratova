@@ -9,7 +9,7 @@ namespace assignment {
   int squared_diff(int left, int right){
     int c = left - right;
     c = c*c;
-    return 0;
+    return c;
   }
 
   // Task 2
@@ -40,23 +40,19 @@ namespace assignment {
   // Task 4
   void swap_args(int *left, int *right) {
     if (left != nullptr && right != nullptr) {
-      std::cout<<*left<<", "<<*right;
-    }
-    else if (left == nullptr && right != nullptr){
-      std::cout<<nullptr<<", "<<*right;
-    }
-    else if (left != nullptr && right == nullptr){
-      std::cout<<*left<<", "<<nullptr;
-    }
-    else {
-      std::cout<<nullptr<<", "<<nullptr;
-    }
+      int l = *right;
+      int r = *left;
+      *right = l;
+      *left = r;
   }
 
   // Task 5
   int arr_sum(int *arr, int length) {
-    if (length == 0){
+    if (length <= 0){
       return 0;
+    }
+    else{
+      if
     }
     return 0;
   }
