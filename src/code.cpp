@@ -40,16 +40,16 @@ namespace assignment {
   // Task 4
   void swap_args(int *left, int *right) {
     if (left != nullptr && right != nullptr) {
-      std::cout<<"left = "<<*left<<", right = "<<*right;;
+      std::cout<<*left<<" "<<*right;
     }
     else if (left == nullptr && right != nullptr){
-      std::cout<<"left = "<<nullptr<<", right = "<<*right;
+      std::cout<<nullptr<<" "<<*right;
     }
     else if (left != nullptr && right == nullptr){
-      std::cout<<"left = "<<*left<<", right = "<<nullptr;
+      std::cout<<*left<<" "<<nullptr;
     }
     else {
-      std::cout<<"left = "<<nullptr<<", right = "<<nullptr;
+      std::cout<<nullptr<<" "<<nullptr;
     }
   }
 
