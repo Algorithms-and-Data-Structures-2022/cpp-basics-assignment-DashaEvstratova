@@ -57,7 +57,7 @@ namespace assignment {
         s += arr[i];
       }
     }
-    return s;
+    return 0;
   }
 
   // Task 6
