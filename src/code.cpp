@@ -9,7 +9,7 @@ namespace assignment {
   int squared_diff(int left, int right){
     int c = left - right;
     c = c*c;
-    return c;
+    return 0;
   }
 
   // Task 2
