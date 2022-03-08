@@ -23,7 +23,7 @@ namespace assignment {
       return a;
     }
     bool a = true;
-    return 0;
+    return a;
   }
 
   // Task 3
