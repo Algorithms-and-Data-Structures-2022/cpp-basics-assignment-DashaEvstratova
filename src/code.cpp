@@ -43,18 +43,21 @@ namespace assignment {
       int l = *right;
       int r = *left;
       *right = l;
-      *left = r;
+      *left = r;}
   }
 
   // Task 5
   int arr_sum(int *arr, int length) {
-    if (length <= 0){
+    int s=0;
+    if (length <= 0 || arr == nullptr){
       return 0;
     }
     else{
-      if
+      for (int i =0;i<length; i++){
+        s += arr[i];
+      }
     }
-    return 0;
+    return s;
   }
 
   // Task 6
