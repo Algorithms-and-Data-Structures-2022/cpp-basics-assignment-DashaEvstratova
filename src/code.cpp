@@ -40,23 +40,24 @@ namespace assignment {
   // Task 4
   void swap_args(int *left, int *right) {
     if (left != nullptr && right != nullptr) {
-      std::cout<<*left<<" "<<*right;
+      std::cout<<*left<<", "<<*right;
     }
     else if (left == nullptr && right != nullptr){
-      std::cout<<nullptr<<" "<<*right;
+      std::cout<<nullptr<<", "<<*right;
     }
     else if (left != nullptr && right == nullptr){
-      std::cout<<*left<<" "<<nullptr;
+      std::cout<<*left<<", "<<nullptr;
     }
     else {
-      std::cout<<nullptr<<" "<<nullptr;
+      std::cout<<nullptr<<", "<<nullptr;
     }
   }
 
   // Task 5
   int arr_sum(int *arr, int length) {
-
-
+    if (length == 0){
+      return 0;
+    }
     return 0;
   }
 
