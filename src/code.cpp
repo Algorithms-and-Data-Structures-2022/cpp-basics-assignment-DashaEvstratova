@@ -42,45 +42,57 @@ namespace assignment {
     if (left != nullptr && right != nullptr) {
       int l = *right;
       int r = *left;
-      *right = l;
-      *left = r;}
+      *right = r;
+      *left = l;}
   }
 
   // Task 5
   int arr_sum(int *arr, int length) {
     int s=0;
-    if (length <= 0 || arr == nullptr){
+    if (arr == nullptr){
       return 0;
     }
-    else{
+    else if (length >0){
       for (int i =0;i<length; i++){
         s += arr[i];
       }
     }
-    return 0;
+    return s;
   }
 
   // Task 6
   int *find_max_elem(int *arr, int length) {
-
-    // Write your code here ...
-
+    if (length>0 && arr != nullptr){
+      int* a = &arr[0];
+      for (int i =1;i<length; i++) {
+        if (arr[i] > *a) {
+          a = &arr[i];
+        }
+      }
+      return a;
+    }
     return nullptr;
   }
 
   // Task 7
   int *allocate_arr(int length, int init_value) {
-
-    // Write your code here ...
-
+    if (length >0){
+      int arr[length];
+      std::fill(arr, arr + length, init_value);
+      int& a = arr[0];
+      return &a;
+    }
     return nullptr;
   }
 
   // Task 8
   int *clone_arr(int *arr_in, int length) {
-
-    // Write your code here ...
-
+    if (length>0 && arr_in != nullptr){
+      int arr[length];
+      std::copy(arr_in, arr_in+length, arr);
+      int& a = arr[0];
+      return &a;
+    }
     return nullptr;
   }
 
